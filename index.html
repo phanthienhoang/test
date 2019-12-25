@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function findMaxValue(a,b,c){
+            let arr=[];
+            arr.push(a,b,c);
+            let maxValue;
+            document.write(arr + "<br>");
+            arr.sort(function(a,b){
+                return b-a;
+
+            });
+
+            for(let i = 0; i<arr.length;i++){
+                if(arr[0]===0){
+                    if(arr[1]==0){
+                        maxValue = 0;
+                    }else{
+                        maxValue = arr[1] * arr[2];
+                    }
+                }
+
+                if(arr[0] === 1){
+                    if(arr[1]===1){
+                        maxValue = arr[0] + arr[1] + arr[2] ;
+                    }
+                    if( arr[1] ===0){
+                        maxValue = 1;
+                    }
+                    if(arr[1]<0){
+                        maxValue =b *c;
+                    }
+                }
+
+                if(arr[1]===0){
+                    maxValue=arr[0];
+                }
+
+                if(arr[2]==0){
+                    if(arr[1]!=1){
+                        maxValue = arr[0] *arr[1];
+                    }
+                    if(arr[1]===1){
+                        maxValue = arr[0] + arr[1];
+                    }
+                }
+                if(arr[0]>1){
+                    maxValue = arr[0] *arr[1]*arr[2];
+                }
+                if(arr[1]>1){
+                    if(arr[2]===0){
+                        maxValue = arr[0]*arr[1];
+                    }
+                    if(arr[2]==1){
+                        maxValue = arr[0] * (arr[1]+arr[2]);
+                    }
+                    if(arr[2]<0){
+                        maxValue = arr[0] * arr[1] + arr[2]; 
+                    }
+                }
+                if(arr[2]>1){
+                    maxValue=arr[1]*arr[2]*arr[0];
+                }
+                if(arr[1]===1){
+                    if(arr[2]===1){
+                        maxValue = (arr[1]+arr[2])*arr[0];
+                    }
+                    if(arr[2]===0){
+                        maxValue = arr[1] + arr[0];
+                    }
+                    if(arr[2]<0){
+                        maxValue = arr[1] + arr[2] + arr[0];
+                    }
+                }
+            }
+            
+            return maxValue;
+        }
+
+        let num1 = +prompt("nhập vào số 1 (int)");
+        while(!Number.isInteger(num1)){
+            num1=+prompt("nhập lại số 1 (int)");
+        }
+        let num2 = +prompt("nhập vào số thứ 2 (int)");
+        while(!Number.isInteger(num2)){
+            num2=+prompt("nhập lại số 1 (int)");
+        }
+        let num3 = +prompt("nhập vào số thứ 3 (int)");
+        while(!Number.isInteger(num3)){
+            num3=+prompt("nhập lại số 1 (int)");
+        }
+
+        document.write("max " + findMaxValue(num1,num2,num3));
+
+       
+    </script>
+</body>
+</html>
